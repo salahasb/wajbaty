@@ -10,7 +10,7 @@ export default function IngredientsList() {
 		<div className="modal-ingredients-list">
 			{ingredients.length > 0 &&
 				ingredients.map((ing, i) => (
-					<RecipeIngredient key={i} ingredient={ing} />
+					<RecipeIngredient key={ing.id} ingredient={ing} hasOptions={true} />
 				))}
 		</div>
 	);

@@ -19,7 +19,7 @@ export async function getRecipes(recipeId) {
 		const { recipes } = data.data;
 
 		if (!recipes.length)
-			throw new Error(`No recipes found for your query! Please try again ;)`);
+			throw "No recipes found for your query! Please try again ;)";
 
 		return recipes;
 	} catch (error) {
@@ -41,7 +41,19 @@ export async function postRecipe(recipe) {
 
 		const data = await res.json();
 
-		if (!res.ok) throw new Error(data.message);
+		console.log(data);
+
+		if (data.status === "fail") {
+			const errMsg = data.message
+				.replace("title", "Title")
+				.replace("publisher", "Publisher")
+				.replace("image_url", "Image URL")
+				.replace("source_url", "Url");
+
+			throw errMsg;
+		}
+
+		if (!res.ok) throw data.message;
 
 		return data.data.recipe;
 	} catch (error) {

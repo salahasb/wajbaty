@@ -31,8 +31,8 @@ function RecipeHow({ selectedRecipe }) {
 
 			<p className="recipe-direction-text">
 				This recipe was carefully designed and tested by{" "}
-				<strong>{selectedRecipe.publisher}</strong>
-				Please check out directions at their website.
+				<strong>{selectedRecipe.publisher}</strong> Please check out directions
+				at their website.
 			</p>
 
 			<a href={selectedRecipe.source_url}>

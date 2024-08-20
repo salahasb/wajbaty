@@ -2,6 +2,7 @@ import { useState } from "react";
 import ActionBtn from "../../ui/ActionBtn";
 import { useDispatch } from "react-redux";
 import { addIngredient, hideIngredientForm } from "./newRecipeSlice";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AddIngredientForm() {
 	const [quantity, setQuantity] = useState("");
@@ -16,7 +17,7 @@ export default function AddIngredientForm() {
 		e.preventDefault();
 		if (!quantity || !unit || !description) return;
 
-		dispatch(addIngredient({ quantity, unit, description }));
+		dispatch(addIngredient({ id: uuidv4(), quantity, unit, description }));
 	}
 
 	return (

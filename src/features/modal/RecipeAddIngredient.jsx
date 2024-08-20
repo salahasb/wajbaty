@@ -29,22 +29,6 @@ function RecipeAddIngredient() {
 			{showAddIngredient ? <AddIngredientForm /> : <IngredientsList />}
 		</div>
 	);
-	// return (
-	// 	<div className="boxi">
-	// 		<div className="form-header">
-	// 			<h3>Ingredients</h3>
-
-	// 			<button
-	// 				className="add-btn"
-	// 				onClick={() => dispatch({ type: "showIngredientForm" })}
-	// 			>
-	// 				{!showAddIngredient && <AddSvg />}
-	// 			</button>
-	// 		</div>
-
-	// 		{showAddIngredient ? <AddIngredientForm /> : <IngredientsList />}
-	// 	</div>
-	// );
 }
 
 export default RecipeAddIngredient;

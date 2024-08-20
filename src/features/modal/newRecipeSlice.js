@@ -45,6 +45,11 @@ const newRecipeSlice = createSlice({
 		showIngredientForm(state) {
 			state.showAddIngredient = true;
 		},
+		deleteIngredient(state, { payload }) {
+			state.recipe.ingredients = state.recipe.ingredients.filter(
+				(ing) => ing.id !== payload
+			);
+		},
 		loading(state) {
 			state.status.isLoading = true;
 		},
@@ -110,6 +115,7 @@ export const {
 	addIngredient,
 	hideIngredientForm,
 	showIngredientForm,
+	deleteIngredient,
 	showModal,
 	hideModal,
 	setRecipeInfo,

@@ -495,14 +495,39 @@ img {
 }
 .ingredient {
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	font-size: 16px;
 }
-.bullet-icon {
-	flex: 0 0 auto;
+.ingredient-text {
 }
+.bullet-icon {
+	flex-shrink: 0;
+	margin-right: 0.5rem;
+	height: 1rem;
+	color: #f38e82;
+}
+
 .ingredient-quantity {
 	margin-right: 5px;
+}
+.delete-ingredient {
+	flex-shrink: 0;
+	color: red;
+	background-color: #ddd;
+	border: 0;
+	margin-left: auto;
+	border-radius: 100%;
+	aspect-ratio: 1;
+	height: 1.6rem;
+	font-size: 1rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s;
+}
+.delete-ingredient:hover {
+	background-color: #fbdb89;
 }
 /* How to cook it */
 .how-to-cook {
@@ -676,6 +701,10 @@ img {
 .modal-ingredients-list {
 	overflow-y: auto;
 	height: 100%;
+	max-width: 30rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 .add-ingredients-btn-form {
 	display: flex;
