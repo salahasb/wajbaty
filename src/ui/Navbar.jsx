@@ -2,6 +2,7 @@ import Bookmarks from "../features/bookmarks/Bookmarks";
 import NavBtn from "./NavBtn";
 import Search from "../features/recipes/Search";
 import { AddSvg, BookmarkSvg } from "../svgComponents";
+import { HiOutlineMenu } from "react-icons/hi";
 
 export default function Navbar() {
 	return (
@@ -14,13 +15,17 @@ export default function Navbar() {
 
 			<div className="nav-btn-box">
 				<NavBtn>
-					<AddSvg size={30} /> add recipe
+					<AddSvg />
+					<span> add recipe </span>
 				</NavBtn>
 
 				<NavBtn className={"bookmarks-btn"}>
 					<BookmarkSvg />
-					bookmarks
+					<span>bookmarks</span>
 					<Bookmarks />
+				</NavBtn>
+				<NavBtn className={"bookmarks-btn"}>
+					<HiOutlineMenu className="hamburger-menu" />{" "}
 				</NavBtn>
 			</div>
 		</nav>

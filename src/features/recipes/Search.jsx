@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRecipes } from "../../contexts/RecipesContext";
 import { SearchSvg } from "../../svgComponents";
 
-export default function Search() {
+export default function Search({ className }) {
 	const [query, setQuery] = useState("");
 
 	const { fetchData } = useRecipes();
@@ -15,7 +15,7 @@ export default function Search() {
 	}
 
 	return (
-		<form className="search-box" onSubmit={handleSearchRecipes}>
+		<form className={`search-form ${className}`} onSubmit={handleSearchRecipes}>
 			<input
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
@@ -25,7 +25,7 @@ export default function Search() {
 
 			<ActionBtn className={"search-btn"}>
 				<SearchSvg />
-				Search
+				<span>Search</span>
 			</ActionBtn>
 		</form>
 	);
