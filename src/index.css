@@ -113,16 +113,17 @@ img {
 	/* z-index: 1; */
 	background-color: #fff;
 	height: 6rem;
-	box-shadow: 1px 2px 43px -3px rgba(0, 0, 0, 0.121);
-	-webkit-box-shadow: 1px 2px 43px -3px rgba(0, 0, 0, 0.121);
-	-moz-box-shadow: 1px 2px 43px -3px rgba(0, 0, 0, 0.121);
+	box-shadow: 1px 2px 73px 0px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 1px 2px 73px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 1px 2px 73px 0px rgba(0, 0, 0, 0.1);
 
 	@media (min-width: 600px) {
 		padding: 0 4rem;
 		height: 8.8rem;
 	}
+
 	@media (min-width: 1024px) {
-		z-index: 1;
+		z-index: 3;
 	}
 }
 .nav-bar > * {
@@ -167,26 +168,37 @@ img {
 	}
 }
 
+.search-form:focus-within {
+	box-shadow: rgba(0, 0, 0, 0.055) 0px 5px 15px;
+	transform: translateY(-3px);
+}
+
 .search-form.show {
 	display: block;
 	flex-grow: 0;
-	margin: 3rem auto;
+	margin: 1rem auto 4rem auto;
+	position: sticky;
+	top: 80px;
+	z-index: 1;
+	-webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+	border: 1px solid #ddd;
 
 	@media (min-width: 1024px) {
 		display: none;
 	}
+
+	@media (min-width: 600px) {
+		top: 110px;
+	}
 }
 .search-form.show span {
 	display: none;
+
 	@media (min-width: 425px) {
 		display: block;
 	}
 }
 
-.search-form form:focus-within {
-	box-shadow: rgba(0, 0, 0, 0.055) 0px 5px 15px;
-	transform: translateY(-3px);
-}
 .search-form input {
 	border: 0;
 	outline: 0;
@@ -196,9 +208,9 @@ img {
 	border-radius: 40px;
 	background-color: #eee;
 
-	@media (min-width: 500px) {
-		/* font-size: 1.6rem; */
-		/* padding: 1.5rem 0 1.5rem 3rem; */
+	@media (min-width: 1024px) {
+		font-size: 1.6rem;
+		padding: 1.5rem 0 1.5rem 3rem;
 	}
 }
 .search-form input::placeholder {
@@ -206,24 +218,6 @@ img {
 }
 .search-form input:focus {
 	box-shadow: none;
-}
-
-.search-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	/* width: 35%; */
-
-	padding: 1.2rem;
-	/* height: 100%; */
-	border: 0;
-	font-family: inherit;
-	font-weight: 600;
-	font-size: 16px;
-	@media (min-width: 425px) {
-		padding: 0rem 2rem;
-	}
 }
 
 /*  */
@@ -238,6 +232,28 @@ img {
 	cursor: pointer;
 	text-transform: uppercase;
 	transition: transform 0.3s;
+}
+
+.search-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 1.2rem;
+	border: 0;
+	font-family: inherit;
+	font-weight: 600;
+	gap: 0.4rem;
+	font-size: 1.6rem;
+
+	@media (min-width: 425px) {
+		padding: 0rem 1.6rem;
+	}
+
+	@media (min-width: 1024px) {
+		gap: 1rem;
+		padding: 0rem 3rem;
+	}
 }
 /*  */
 .btn:hover {
@@ -339,22 +355,44 @@ img {
 	background: #fff;
 	display: flex;
 	flex-direction: column;
-	padding: 20px 0;
-	position: absolute;
+	/* padding: 20px 0; */
+	position: fixed;
 	left: 0;
 	bottom: 0;
 	top: 0;
-	width: 40rem;
+	width: 100%;
+	max-width: 40rem;
 	z-index: 2;
 	transition: transform 0.3s;
+	overflow-y: auto;
+	box-shadow: 10px 0px 40px 0px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 10px 0px 40px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 10px 0px 40px 0px rgba(0, 0, 0, 0.1);
+
+	/* transform: translateX(-100%); */
 
 	@media (min-width: 1024px) {
 		position: static;
 		transform: translate(0);
+		box-shadow: none;
+	}
+}
+
+.nav-bar.recipes-list {
+	position: sticky;
+	top: 0;
+	flex-shrink: 0;
+	z-index: 1;
+
+	@media (min-width: 1024px) {
+		display: none;
 	}
 
-	/* transform: translateX(-100%); */
+	@media (min-width: 600px) {
+		padding: 0 2rem;
+	}
 }
+
 .recipes-list-container {
 	display: flex;
 	flex-direction: column;
@@ -419,8 +457,7 @@ img {
 	justify-content: center;
 	align-items: center;
 }
-.close-btn {
-}
+
 .recipes-list-box .recipe-title {
 	color: #f38e82;
 	font-weight: 600;
@@ -739,19 +776,35 @@ img {
 	visibility: visible;
 }
 
-.close-modal {
-	/* color: #555 !important; */
+.close-btn {
 	cursor: pointer;
+	padding: 0.2rem;
 	position: absolute;
 	right: 15px;
 	top: 15px;
-	width: 26px;
-	height: 26px;
 	border: 0;
+	margin-left: auto;
+
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	background-color: unset;
+	border-radius: 4px;
+	z-index: 2;
+}
+.close-btn:is(:hover) {
+	background-color: #eee;
+}
+
+.close-btn.recipes-list {
+	position: static;
+	border-radius: 50%;
+	padding: 0.8rem;
+	background-color: #eee;
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
 }
 
 /* form */

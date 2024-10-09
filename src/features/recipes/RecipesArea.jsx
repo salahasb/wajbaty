@@ -5,12 +5,21 @@ import Recipes from "./Recipes";
 import { useRecipes } from "../../contexts/RecipesContext";
 import { SmileSvg, TriangleSvg } from "../../svgComponents";
 import Search from "./Search";
+import CloseButton from "../../ui/CloseButton";
 
 export default function RecipesArea() {
 	const { status, error, recipes } = useRecipes();
 
 	return (
 		<div className="recipes-list-area">
+			<div className="nav-bar recipes-list">
+				<div className="nav-brand">
+					<img src="logo.png" alt="logo" />
+				</div>
+
+				<CloseButton className="recipes-list" backBtn={true} />
+			</div>
+
 			<Search className="show" />
 
 			{status === "loading" && <Loader />}

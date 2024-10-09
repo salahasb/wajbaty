@@ -3,6 +3,7 @@ import { CloseSvg, SmileSvg } from "../../svgComponents";
 import AddRecipe from "./AddRecipe";
 import { useDispatch, useSelector } from "react-redux";
 import { hideModal } from "./newRecipeSlice";
+import CloseButton from "../../ui/CloseButton";
 
 export default function Modal() {
 	const successMsg = useSelector((store) => store.newRecipe.status.successMsg);
@@ -24,9 +25,7 @@ export default function Modal() {
 			onClick={handleCloseModal}
 		>
 			<div className="add-recipe-modal">
-				<button className="close-modal" onClick={handleCloseModal}>
-					<CloseSvg />
-				</button>
+				<CloseButton onClick={handleCloseModal} />
 
 				{!successMsg ? (
 					<AddRecipe />
