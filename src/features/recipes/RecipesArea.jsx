@@ -21,7 +21,8 @@ export default function RecipesArea() {
 
 			if (!e.target.closest(".close-btn")) e.stopPropagation();
 
-			if (!sideBar.current.contains(e.target)) setShowSideBar(false);
+			if (!sideBar.current.contains(e.target) || e.target.closest(".recipe"))
+				setShowSideBar(false);
 		};
 
 		document.addEventListener("click", onClickOutside, true);
