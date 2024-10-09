@@ -1,16 +1,20 @@
-import ActionBtn from "./ActionBtn";
 import { PersonSvg } from "../svgComponents";
 import { useLocation } from "react-router-dom";
+import { useSideBar } from "../contexts/SideBarContext";
 
 export default function Recipe({ recipe }) {
-	// const { selectedRecipe } = useRecipe();
+	const { setShowSideBar } = useSideBar();
+
 	const { hash } = useLocation();
 	const selectedRecipeId = hash.substring(1);
 
 	const isSelected = recipe.id === selectedRecipeId;
 
 	return (
-		<li className={`recipe ${isSelected ? "active" : ""}`}>
+		<li
+			className={`recipe ${isSelected ? "active" : ""}`}
+			onClick={() => setShowSideBar(false)}
+		>
 			<a href={`#${recipe.id}`}>
 				<img className="recipe-img" src={recipe.image_url} alt={recipe.title} />
 

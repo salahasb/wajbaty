@@ -6,18 +6,46 @@ import { useRecipes } from "../../contexts/RecipesContext";
 import { SmileSvg, TriangleSvg } from "../../svgComponents";
 import Search from "./Search";
 import CloseButton from "../../ui/CloseButton";
+import { useSideBar } from "../../contexts/SideBarContext";
+import { useEffect, useRef } from "react";
 
 export default function RecipesArea() {
 	const { status, error, recipes } = useRecipes();
+	const { showSideBar, setShowSideBar } = useSideBar();
+	const sideBar = useRef(null);
+
+	// Detect outside click
+	useEffect(() => {
+		const onClickOutside = (e) => {
+			if (!showSideBar) return;
+
+			if (!e.target.closest(".close-btn")) e.stopPropagation();
+
+			if (!sideBar.current.contains(e.target)) setShowSideBar(false);
+		};
+
+		document.addEventListener("click", onClickOutside, true);
+
+		return () => {
+			document.removeEventListener("click", onClickOutside, true);
+		};
+	}, [setShowSideBar, showSideBar]);
 
 	return (
-		<div className="recipes-list-area">
+		<div
+			ref={sideBar}
+			className={`recipes-list-area ${showSideBar ? "show" : ""} `}
+		>
 			<div className="nav-bar recipes-list">
 				<div className="nav-brand">
 					<img src="logo.png" alt="logo" />
 				</div>
 
-				<CloseButton className="recipes-list" backBtn={true} />
+				<CloseButton
+					className="recipes-list"
+					onClick={(e) => setShowSideBar(false)}
+					backBtn={true}
+				/>
 			</div>
 
 			<Search className="show" />
