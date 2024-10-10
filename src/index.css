@@ -173,7 +173,10 @@ img {
 	position: sticky;
 	top: 100px;
 	z-index: 1;
-	-webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+
 	border: 1px solid #ddd;
 
 	@media (min-width: 1024px) {
@@ -624,7 +627,7 @@ img {
 	}
 
 	@media (min-width: 600px) {
-		padding: 4rem 6rem;
+		padding: 4rem 8rem;
 	}
 }
 .cooking-time-box,
@@ -644,9 +647,17 @@ img {
 		margin-right: 3rem;
 	}
 
-	@media (min-width: 768px) {
+	@media (min-width: 600px) {
+		font-size: 1.6rem;
+	}
+
+	@media (min-width: 700px) {
 		margin-right: 5rem;
 	}
+}
+.cooking-time-box > *,
+.servings-box > * {
+	flex-shrink: 0;
 }
 .cooking-time-box .text,
 .servings-box .text {
@@ -680,14 +691,24 @@ img {
 	transform: translateY(-2px);
 }
 
+.serving-btn-box {
+	display: none;
+
+	@media (min-width: 768px) {
+		display: flex;
+		align-items: center;
+		gap: 0.2rem;
+	}
+}
+
 .servings-btn {
 	border: 0;
 	background-color: initial;
-	display: none;
+	height: fit-content;
 }
 
-.minus-btn {
-	margin-right: 3px;
+.serving-btn-box .feather {
+	width: 1.8rem;
 }
 
 /* Recipe detail bookmark */
@@ -713,30 +734,54 @@ img {
 /* recipe ingredients */
 .recipe-ingredients {
 	background-color: #f2efee;
-	padding: 50px 100px;
+	padding: 4rem;
+
+	@media (min-width: 500px) {
+		padding: 5rem 5rem;
+	}
+
+	@media (min-width: 600px) {
+		padding: 5rem 8rem;
+	}
 }
 .title {
 	display: block;
 	width: fit-content;
 	margin: 0 auto;
-	font-size: 20px;
+	font-size: 1.8rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 30px;
 	color: #f38e82;
+
+	@media (min-width: 500px) {
+		font-size: 2rem;
+	}
 }
 .ingredients-box {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: 20px;
+
+	@media (min-width: 768px) {
+		grid-template-columns: 1fr 1fr;
+	}
 }
+
 .ingredient {
 	display: flex;
 	align-items: baseline;
-	font-size: 16px;
+	font-size: 1.2rem;
+
+	@media (min-width: 425px) {
+		font-size: 1.4rem;
+	}
+
+	@media (min-width: 500px) {
+		font-size: 1.6rem;
+	}
 }
-.ingredient-text {
-}
+
 .bullet-icon {
 	flex-shrink: 0;
 	margin-right: 1rem;
@@ -768,7 +813,15 @@ img {
 }
 /* How to cook it */
 .how-to-cook {
-	padding: 50px;
+	padding: 3rem;
+
+	@media (min-width: 500px) {
+		padding: 5rem 5rem;
+	}
+
+	@media (min-width: 600px) {
+		padding: 5rem 8rem;
+	}
 }
 .how-to-cook a {
 	display: block;
@@ -776,10 +829,14 @@ img {
 	width: fit-content;
 }
 .recipe-direction-text {
-	margin-bottom: 50px;
-	font-size: 16px;
+	margin-bottom: 3.4rem;
+	font-size: 1.4rem;
 	text-align: center;
 	color: #918581;
+
+	@media (min-width: 600px) {
+		font-size: 1.6rem;
+	}
 }
 .how-to-cook-btn {
 	border: 0;
