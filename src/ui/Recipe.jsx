@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useSideBar } from "../contexts/SideBarContext";
 
 export default function Recipe({ recipe }) {
-	const { setShowSideBar } = useSideBar();
+	// const { setShowSideBar } = useSideBar();
 
 	const { hash } = useLocation();
 	const selectedRecipeId = hash.substring(1);
@@ -13,7 +13,7 @@ export default function Recipe({ recipe }) {
 	return (
 		<li
 			className={`recipe ${isSelected ? "active" : ""}`}
-			onClick={() => setShowSideBar(false)}
+			// onClick={() => setShowSideBar(false)}
 		>
 			<a href={`#${recipe.id}`}>
 				<img className="recipe-img" src={recipe.image_url} alt={recipe.title} />

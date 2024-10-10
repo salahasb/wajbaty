@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 
 export default function Navbar() {
 	const dispatch = useDispatch();
-	const { setShowSideBar } = useSideBar();
+	const { showSideBar, setShowSideBar } = useSideBar();
 
 	return (
 		<nav className="nav-bar">
@@ -33,7 +33,12 @@ export default function Navbar() {
 
 				<NavBtn
 					className={"bookmarks-btn"}
-					onClick={() => setShowSideBar((s) => !s)}
+					onClick={(e) => {
+						e.stopPropagation();
+						// if (showSideBar) return;
+						console.log("menu clicked");
+						setShowSideBar((s) => !s);
+					}}
 				>
 					<HiOutlineMenu className="hamburger-menu" />
 				</NavBtn>

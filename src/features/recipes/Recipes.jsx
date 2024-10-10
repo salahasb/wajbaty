@@ -36,7 +36,15 @@ export default function Recipes({ recipes }) {
 				)}
 
 				{!isLastPage && (
-					<PageBtn className="next" onClick={() => handleChangePage(true)}>
+					<PageBtn
+						className="next"
+						onClick={(e) => {
+							e.stopPropagation();
+							console.log(e.target.closest(".recipes-list-area"));
+
+							handleChangePage(true);
+						}}
+					>
 						Page {page + 2}
 						<ArrowRightSvg />
 					</PageBtn>

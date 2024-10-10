@@ -16,19 +16,22 @@ export default function RecipesArea() {
 
 	// Detect outside click
 	useEffect(() => {
+		// Ensure listening only when "sidebar" is visible
+		if (!showSideBar) return;
+
 		const onClickOutside = (e) => {
-			if (!showSideBar) return;
-
-			if (!e.target.closest(".close-btn")) e.stopPropagation();
-
-			if (!sideBar.current.contains(e.target) || e.target.closest(".recipe"))
+			if (
+				!e.target.closest(".recipes-list-area") ||
+				e.target.closest(".close-btn") ||
+				e.target.closest(".recipe")
+			)
 				setShowSideBar(false);
 		};
 
-		document.addEventListener("click", onClickOutside, true);
+		document.addEventListener("click", onClickOutside);
 
 		return () => {
-			document.removeEventListener("click", onClickOutside, true);
+			document.removeEventListener("click", onClickOutside);
 		};
 	}, [setShowSideBar, showSideBar]);
 
@@ -44,7 +47,7 @@ export default function RecipesArea() {
 
 				<CloseButton
 					className="recipes-list"
-					onClick={(e) => setShowSideBar(false)}
+					// onClick={(e) => setShowSideBar(false)}
 					backBtn={true}
 				/>
 			</div>
