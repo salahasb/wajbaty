@@ -12,6 +12,7 @@ function RecipeDetail({ selectedRecipe, setSelectedRecipe }) {
 					<span>{selectedRecipe.title}</span>
 				</h1>
 			</div>
+
 			<RecipeOptions
 				selectedRecipe={selectedRecipe}
 				setSelectedRecipe={setSelectedRecipe}
