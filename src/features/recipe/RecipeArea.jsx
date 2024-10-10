@@ -25,7 +25,6 @@ export default function RecipesDetail() {
 
 				const { recipe } = data.data;
 
-				console.log(recipe);
 				setSelectedRecipe(recipe);
 			} catch (error) {
 				console.error(error);
@@ -48,7 +47,6 @@ export default function RecipesDetail() {
 		};
 
 		window.addEventListener("hashchange", handleHashChange);
-		console.log("an event handler added");
 
 		handleHashChange();
 	}, []);
@@ -64,7 +62,7 @@ export default function RecipesDetail() {
 				</Message>
 			)}
 
-			{selectedRecipe.id && (
+			{selectedRecipe.id && !isLoading && (
 				<RecipeDetail
 					selectedRecipe={selectedRecipe}
 					setSelectedRecipe={setSelectedRecipe}

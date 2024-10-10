@@ -35,7 +35,7 @@ function RecipeHow({ selectedRecipe }) {
 				at their website.
 			</p>
 
-			<a href={selectedRecipe.source_url}>
+			<a href={selectedRecipe.source_url} target="_blank" rel="noreferrer">
 				<ActionBtn className="how-to-cook-btn">
 					Directions
 					<ArrowRightSvg />

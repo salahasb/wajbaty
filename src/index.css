@@ -397,12 +397,13 @@ img {
 .recipes-list-container {
 	display: flex;
 }
-/* loading spinner */
 
+/* loading spinner */
 .loading-spinner-box {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 4rem 0;
 	/* height: 100%; */
 }
 .feather-loader {

@@ -29,7 +29,13 @@ export default function Recipes({ recipes }) {
 
 			<div className="paginations-box">
 				{page !== 0 && (
-					<PageBtn className="previous" onClick={() => handleChangePage()}>
+					<PageBtn
+						className="previous"
+						onClick={(e) => {
+							e.stopPropagation();
+							handleChangePage();
+						}}
+					>
 						<ArrowLeftSvg />
 						Page {page}
 					</PageBtn>
@@ -40,8 +46,6 @@ export default function Recipes({ recipes }) {
 						className="next"
 						onClick={(e) => {
 							e.stopPropagation();
-							console.log(e.target.closest(".recipes-list-area"));
-
 							handleChangePage(true);
 						}}
 					>
