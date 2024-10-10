@@ -746,14 +746,14 @@ img {
 }
 .title {
 	display: block;
-	width: fit-content;
+	width: max-content;
 	margin: 0 auto;
 	font-size: 1.8rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 30px;
 	color: #f38e82;
-
+	text-wrap: nowrap;
 	@media (min-width: 500px) {
 		font-size: 2rem;
 	}
