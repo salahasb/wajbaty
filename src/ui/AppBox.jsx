@@ -1,19 +1,23 @@
 import Navbar from "./Navbar";
 import RecipesDetail from "../features/recipe/RecipeArea";
 import RecipesArea from "../features/recipes/RecipesArea";
-import { useState } from "react";
 import { SideBarProvider } from "../contexts/SideBarContext";
 
 function AppBox() {
 	return (
-		<div className="app-box">
-			<SideBarProvider>
+		// <div className="">
+		<SideBarProvider>
+			<div className="app-container">
 				<Navbar />
-				<RecipesArea />
-			</SideBarProvider>
 
-			<RecipesDetail />
-		</div>
+				<div className="app-box">
+					<RecipesArea />
+
+					<RecipesDetail />
+				</div>
+			</div>
+		</SideBarProvider>
+		// {/* </div> */}
 	);
 }
 
