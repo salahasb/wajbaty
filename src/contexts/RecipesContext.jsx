@@ -27,7 +27,7 @@ function RecipesProvider({ children }) {
 
 	async function fetchData(query, setQuery) {
 		try {
-			setQuery("");
+			// setQuery("");
 			dispatch({ type: "loading" });
 
 			// send http req to get recipes

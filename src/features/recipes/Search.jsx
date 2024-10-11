@@ -12,6 +12,7 @@ export default function Search({ className }) {
 		e.preventDefault();
 		if (!query) return;
 		fetchData(query, setQuery);
+		e.currentTarget.children[0].blur();
 	}
 
 	return (
