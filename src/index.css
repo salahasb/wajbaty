@@ -376,6 +376,7 @@ img {
 }
 .recipes-list-area.show {
 	transform: translateX(0);
+	height: 100dvh;
 }
 .nav-bar.recipes-list {
 	position: sticky;
