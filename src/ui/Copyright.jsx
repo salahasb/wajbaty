@@ -1,3 +1,6 @@
 export default function Copyright() {
-	return <p className="copyright">© Copyright 2024 by Forkify Inc.</p>;
+	const date = new Date();
+	const year = date.getFullYear();
+
+	return <p className="copyright">© Copyright {year} by Wajbaty Inc.</p>;
 }
