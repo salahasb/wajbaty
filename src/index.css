@@ -98,7 +98,7 @@ img {
 
 	@media (min-width: 1024px) {
 		border-radius: 10px;
-		width: 120rem;
+		width: 120rem !important;
 	}
 }
 
