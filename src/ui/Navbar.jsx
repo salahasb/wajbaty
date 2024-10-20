@@ -14,7 +14,7 @@ export default function Navbar() {
 	return (
 		<nav className="nav-bar">
 			<div className="nav-brand">
-				<img src="logo.png" alt="logo" />
+				<img src="wajbaty-logo.png" alt="logo" />
 			</div>
 
 			<Search />
