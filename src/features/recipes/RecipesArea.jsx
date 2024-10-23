@@ -42,14 +42,10 @@ export default function RecipesArea() {
 		>
 			<div className="nav-bar recipes-list">
 				<div className="nav-brand">
-					<img src="logo.png" alt="logo" />
+					<img src="wajbaty-logo.png" alt="logo" />
 				</div>
 
-				<CloseButton
-					className="recipes-list"
-					// onClick={(e) => setShowSideBar(false)}
-					backBtn={true}
-				/>
+				<CloseButton className="recipes-list" backBtn={true} />
 			</div>
 
 			<Search className="show" />
