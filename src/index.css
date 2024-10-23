@@ -62,14 +62,14 @@ html {
 
 /* width: 100%; */
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
 
 #root {
 		height: auto
 }
 	}
 
-@media (min-width: 1100px) {
+@media (min-width: 1280px) {
 
 #root {
 		padding: 4rem
@@ -104,10 +104,14 @@ img {
 	height: 100%;
 	width: 100%;
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
 .app-container {
-		border-radius: 10px;
 		width: 120rem !important
+}
+	}
+@media (min-width: 1280px) {
+.app-container {
+		border-radius: 22px
 }
 	}
 
@@ -445,6 +449,8 @@ img {
 }
 @media (min-width: 1024px) {
 .recipes-list-area {
+		max-width: initial;
+
 		height: auto;
 		position: static;
 		transform: translate(0);
